@@ -12,7 +12,7 @@ function TodoList() {
     setTasks([...tasks, neWTasks]);
   };
   const removeTask = (texto) =>{
-    tasks.filter((tarea) => tarea === texto);
+    setTasks(tasks.filter(task => task !== texto));
   }
 
   return (
@@ -24,8 +24,8 @@ function TodoList() {
         </div>
         <button onClick={addTask}>enviar formulario</button>
       </form>
-      {tasks.map(task => (
-        <li>{task} <button onClick={removeTask(task)}>Eliminar</button></li>
+      {tasks.map((task, index) => (
+        <li key={index} >{task} <button onClick={() => removeTask(task)}>Eliminar</button></li>
       ))}
     </div>
   );

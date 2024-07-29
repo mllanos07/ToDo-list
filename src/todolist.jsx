@@ -12,12 +12,12 @@ function TodoList() {
     setTasks([...tasks, neWTasks]);
   };
   const removeTask = (texto) =>{
-    setTasks(tasks.filter(task => task !== texto));
+    setTasks(tasks.filter((tarea) => tarea !== texto));
   }
 
   return (
     <div>
-      <form onSbumit={addTask}>
+      <form onSubmit={addTask}>
         <div>
           <h1>Tareas</h1>
           <input type="text" value={neWTasks} onChange={handleChange} />
@@ -25,7 +25,7 @@ function TodoList() {
         <button onClick={addTask}>enviar formulario</button>
       </form>
       {tasks.map((task, index) => (
-        <li key={index} >{task} <button onClick={() => removeTask(task)}>Eliminar</button></li>
+        <li key={index}>{task} <button onClick={() => removeTask(task)}>Eliminar</button></li>
       ))}
     </div>
   );
